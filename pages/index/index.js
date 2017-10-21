@@ -122,6 +122,7 @@ Page({
       },
       fail: (res) => {
         this.HIDE_LOADING()
+        console.log(res)
         this.BLUETOOTH_STATE_CHANGE()
         if(res.errCode == 10001) {
           wx.showModal({
@@ -282,7 +283,7 @@ Page({
       })
     }
   },
-  
+
   WIRTE_VALUE (str) {
     let buffer = new ArrayBuffer(str.length)
     let dataView = new DataView(buffer)

@@ -1,12 +1,27 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/signUp/signUp",
+    "pages/testPage/testPage"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "test"
+    },{
+      "pagePath": "pages/signUp/signUp",
+      "text": "signUp"
+    },
+    {
+      "pagePath": "pages/testPage/testPage",
+      "text": "testPage"
+    }
+    ]
   }
-}
+} 
