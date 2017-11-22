@@ -1,27 +1,33 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/index/index",
     "pages/signUp/signUp",
-    "pages/testPage/testPage"
+    "pages/height/height",
+    "pages/vitalCapacity/vitalCapacity",
+    "pages/results/results",
+    "pages/weight/weight",
+    "pages/chooseTeacher/chooseTeacher",
+    "pages/miance/miance",
+    "pages/myTeacher/myTeacher",
+    "pages/mianceApply/mianceApply",
+    "pages/flexion/flexion",
+    "pages/longRun/longRun",
+    "pages/jump/jump",
+    "pages/sprint/sprint",
+    "pages/teacherHome/teacherHome",
+    "pages/adminHome/adminHome",
+    "pages/chooseHappening/chooseHappening",
+    "pages/postpone/postpone",
+    "pages/chooseTestTeacher/chooseTestTeacher",
+    "pages/postponeApply/postponeApply",
+    "pages/personal/personal"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "test"
-    },{
-      "pagePath": "pages/signUp/signUp",
-      "text": "signUp"
-    },
-    {
-      "pagePath": "pages/testPage/testPage",
-      "text": "testPage"
-    }
-    ]
+    "navigationBarBackgroundColor": "#eeeeee",
+    "navigationBarTitleText": "体质测试",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#eeeeee"
   }
-} 
+}

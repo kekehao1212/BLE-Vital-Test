@@ -1,31 +1,21 @@
-<!--index.wxml-->
+<!--pages/index/index.wxml-->
 <view class="container">
-  <button catchtap='OPEN_TEST_PANEL' class='panelButton'>{{testPanel ? 'close test panel': 'open test panel'}}</button>
-  <button catchtap='SCAN_CODE'>扫描测试仪二维码</button>
-  <view wx:if="{{bluetoothInfo ? true: false}}">当前肺活量是{{bluetoothInfo}}mL</view>
-  <view wx:else>尚未测量肺活量</view>
-
-  <view wx:if="{{scoreList.length > 0}}" class="scoreList">
-      <view wx:if="{{scoreList.length >= 1}}">第一次测试成绩为{{scoreList[0]}}</view>
-      <view wx:if="{{scoreList.length >= 2}}">第二次测试成绩为{{scoreList[1]}}</view>
-      <view wx:if="{{scoreList.length >= 3}}">第三次测试成绩为{{scoreList[2]}}</view>
-      <view>当前测试最高成绩为{{highScore}}</view>
+  <view class="head_title">请选择操作程序</view>
+  <view class="divider"></view>
+  <view class="image_container">
+    <view class="image_before" bindtap='toStudent'>
+      <image class="image" src="../resource/student.png"></image>
+      <view class="image_text">我是学生</view>
+    </view>
+    <view class="image_before" bindtap='toTeacher'>
+      <image class="image" src="../resource/teacher.png"></image>
+      <view class="image_text">我是老师</view>
+    </view>
   </view>
-
-  <button class='submitTestScore'>
-    提交测试结果
-  </button>
-
-  <view wx:if="{{testPanel}}">
-  <button catchtap='BLUETOOTH_OPEN'>open Bluetooth Adapter</button>
-  <button catchtap='BLUETOOTH_TEST'>get Bluetooth Adapter State</button>
-  <button catchtap='BLUETOOTH_DISCOVERY'>bluetooth Devices Discovery</button>
-  <button catchtap='BLUETOOTO_GET_DEVICES'>get Blutooth Devices</button>
-  <button catchtap='CREATE_BLE_CONNECTION'>create BLE Connection</button>
-  <button catchtap='GET_CONNECTED_BLE_SERVICES'>get Connected BLE Services</button>
-  <button catchtap='GET_CONNECTED_BLE_CHARACTERISTICS'>get BLE Devices Characteristics</button>
-  <button catchtap='READ_CHARACTERISTICS_VALUE'>read BLE Devices Characteristic</button>
-  <button catchtap='OPEN_NOTIFY'>open Notify</button>
-  <button catchtap="RESET_DEVICE">reset_device</button>
+  <view class="image_container" bindtap='toAdmin'>
+    <view class="image_before">
+      <image class="image" src="../resource/admin.png"></image>
+      <view class="image_text">我是管理员</view>
+    </view>
   </view>
 </view>

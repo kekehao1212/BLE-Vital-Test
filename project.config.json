@@ -1,27 +1,17 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
-		"minified": true
+		"minified": true,
+		"newFeature": true
 	},
-	"compileType": "weapp",
-	"libVersion": "1.5.4",
+	"compileType": "miniprogram",
+	"libVersion": "1.6.4",
 	"appid": "wx9f2d9970763424bd",
 	"projectname": "BLE_Vital",
 	"condition": {
-		"weapp": {
-			"current": 0,
-			"list": [
-				{
-					"id": -1,
-					"name": "getDeviceId",
-					"pathName": "pages/index/index",
-					"query": "deviceId=00:15:83:30:F4:9A"
-				}
-			]
-		},
 		"search": {
 			"current": -1,
 			"list": []
@@ -29,6 +19,65 @@
 		"conversation": {
 			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "height",
+					"pathName": "pages/height/height",
+					"query": "deviceId=00:15:83:31:2D:35"
+				},
+				{
+					"id": 1,
+					"name": "capacity1",
+					"pathName": "pages/vitalCapacity/vitalCapacity",
+					"query": "deviceId=00:15:83:30:EC:48&deviceName=WHF170417020166"
+				},
+				{
+					"id": 2,
+					"name": "results",
+					"pathName": "pages/results/results",
+					"query": "deviceId=00:15:83:31:2D:35"
+				},
+				{
+					"id": 3,
+					"name": "chooseTeacher",
+					"pathName": "pages/chooseTestTeacher/chooseTestTeacher",
+					"query": "deviceId=00:15:83:31:2D:35"
+				},
+				{
+					"id": 4,
+					"name": "weight",
+					"pathName": "pages/weight/weight",
+					"query": "deviceId=00:15:85:10:78:06"
+				},
+				{
+					"id": -1,
+					"name": "signUp",
+					"pathName": "pages/signUp/signUp",
+					"query": "deviceId=00:15:83:31:03:5A"
+				},
+				{
+					"id": -1,
+					"name": "web-view",
+					"pathName": "pages/web-view/web-view",
+					"query": "deviceId=00:15:85:10:78:06"
+				},
+				{
+					"id": -1,
+					"name": "chooseHappening",
+					"pathName": "pages/chooseHappening/chooseHappening",
+					"query": "deviceId=00:15:85:10:78:06"
+				},
+				{
+					"id": -1,
+					"name": "postponeApply",
+					"pathName": "pages/postponeApply/postponeApply",
+					"query": ""
+				}
+			]
 		}
 	}
 }
