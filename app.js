@@ -1,60 +1,14 @@
 //app.js
 App({
-  onLaunch: function () {
-    wx.showLoading({
-      title: '正在加载',
-      mask: true
-    })
+  onLaunch () {
     wx.getSystemInfo({
       success: (res) => {
-        if (res.brand == 'iPhone') {
-          this.device = 'iphone'
-        } else {
-          this.device = 'android'
-        }
-      },
-    })
-    setTimeout(() => {
-      wx.hideLoading()
-      this.showActionSheet()
-    }, 500)
-  },
-  onShow: () => {
-
-  },
-  showModal() {
-    wx.showModal({
-      title: '请选择操作软件',
-      content: '选择软件后进行操作',
-      showCancel: false,
-      success: (res) => {
-        if (res.confirm) {
-          this.showActionSheet()
-        }
+        this.device = (res.brand === 'iPhone') ? 'iphone' : 'android'
       }
     })
   },
-
-  showActionSheet() {
-    wx.showActionSheet({
-      itemList: ['学生操作软件', '教师操作软件', '管理员操作软件'],
-      success: (res) => {
-        if (res.tapIndex == 0) {
-          this.studentLogin()
-        } else if (res.tapIndex == 1) {
-          wx.reLaunch({
-            url: '../teacherHome/teacherHome',
-          })
-        } else {
-          wx.reLaunch({
-            url: '../adminHome/adminHome',
-          })
-        }
-      },
-      fail: (res) => {
-        this.showModal()
-      }
-    })
+  onShow () {
+    ((!this.student || !this.myTeacher) && !this.signUping) ? this.studentLogin() : null
   },
   studentLogin() {
     wx.showLoading({
@@ -75,6 +29,7 @@ App({
             this.sessionId = res.header.WX_SESSION_ID;
             console.log(this.sessionId)
             if (!res.data.student) {
+              this.signUping = true
               wx.reLaunch({
                 url: '../signUp/signUp',
               })
@@ -83,7 +38,7 @@ App({
             this.student = res.data.student
             this.getTeacher()
           }
-        })
+        })  
       }
     })
   },
@@ -110,18 +65,98 @@ App({
       }
     })
   },
+
+  authorFail () {
+    wx.showModal({
+      title: '警告',
+      content: '您之前拒绝授权，将无法正常使用该功能，若要使用该功能，请重新授权小程序',
+      success: (res) => {
+        if (res.confirm) {
+          wx.openSetting({
+            success: (res) => {
+              if (res.authSetting['scope.userLocation']) {
+                this.Location()
+              } else{
+                wx.reLaunch({
+                  url: '../home/home',
+                })
+              }
+            }
+          })
+        } else {
+          wx.reLaunch({
+            url: '../home/home',
+          })
+        }
+      }
+    })
+  },
+
+  getLocation() {
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userLocation'] === undefined) {
+          wx.showModal({
+            title: '提示',
+            content: '为了使用该功能，请接下来授权小程序获取您的位置信息，拒绝授权将无法正常使用',
+            showCancel: false,
+            success: (res) => {
+              if (res.confirm) {
+                wx.authorize({
+                  scope: 'scope.userLocation',
+                  success: (res) => {
+                    this.Location()
+                  },
+                  fail: (res) => {
+                    this.authorFail()
+                  } 
+                })
+              }
+            }
+          })
+        } else if (res.authSetting['scope.userLocation'] === false) {
+          this.authorFail()
+        } else {
+          this.Location()
+        }
+      }
+    })
+  },
+
+  Location () {
+    wx.showLoading({
+      title: '正在定位...',
+      mask: true
+    })
+    if (!this.latitude || !this.longitude) {
+      wx.getLocation({
+        success: (res) => {
+          wx.hideLoading()
+          this.longitude = res.longitude
+          this.latitude = res.latitude
+        },fail: (res) => {
+          wx.hideLoading()
+          this.Location()
+        }
+      })
+      return
+    } else {
+      wx.hideLoading()
+    }
+  },
+
   device: undefined,
   serviceId: '0000FFE0-0000-1000-8000-00805F9B34FB',
   sessionId: undefined,
   student: undefined,
   myTeacher: undefined,
-  userIdentity: 'student',
   characteristicId: '0000FFE1-0000-1000-8000-00805F9B34FB',
   url: 'https://wx.acoder.me',
   longitude: undefined,
   latitude: undefined,
+  signUping: undefined,
   globalData: {
     currentPage: undefined,
-    student: undefined
+    receivedPackage: []
   }
 })

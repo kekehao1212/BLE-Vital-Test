@@ -33,7 +33,7 @@
 					"id": 1,
 					"name": "capacity1",
 					"pathName": "pages/vitalCapacity/vitalCapacity",
-					"query": "deviceId=00:15:83:30:EC:48&deviceName=WHF170417020166"
+					"query": ""
 				},
 				{
 					"id": 2,

@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/index/index",
     "pages/signUp/signUp",
     "pages/height/height",
     "pages/vitalCapacity/vitalCapacity",
@@ -15,13 +14,14 @@
     "pages/longRun/longRun",
     "pages/jump/jump",
     "pages/sprint/sprint",
-    "pages/teacherHome/teacherHome",
-    "pages/adminHome/adminHome",
     "pages/chooseHappening/chooseHappening",
     "pages/postpone/postpone",
     "pages/chooseTestTeacher/chooseTestTeacher",
     "pages/postponeApply/postponeApply",
-    "pages/personal/personal"
+    "pages/personal/personal",
+    "pages/resultDetail/resultDetail",
+    "pages/crunches/crunches",
+    "pages/chinUps/chinUps"
   ],
   "window": {
     "backgroundTextStyle": "light",

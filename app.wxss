@@ -26,7 +26,8 @@
 .test_info {
   text-align:center;
   margin-top:100rpx;
-  margin-bottom:200rpx;
+  font-size: 19px;
+  /* margin-bottom:200rpx; */
 }
 .test_btn {
   margin-top: 20rpx;
@@ -35,4 +36,28 @@
 }
 page {
   padding-bottom: 30rpx;
+}
+.template {
+  margin-top: 100rpx; 
+}
+.template_info {
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+  margin-top: 30rpx; 
+  margin-bottom: 60rpx; 
+}
+.danger_info {
+  color: #d32f2f;
+}
+.primary_info {
+  color:#4caf50;
+}
+.counter {
+  text-align: center;
+  font-size:18px;
+  margin-bottom: 30rpx;
+}
+.counter_info {
+  color:#999;
 }
