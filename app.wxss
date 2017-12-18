@@ -55,8 +55,11 @@ page {
 }
 .counter {
   text-align: center;
-  font-size:18px;
+  font-size:20px;
   margin-bottom: 30rpx;
+  margin-top: 100rpx; 
+  font-family:  Helvetica Neue,Helvetica;
+  /* Helvetica Neue,Helvetica; */
 }
 .counter_info {
   color:#999;

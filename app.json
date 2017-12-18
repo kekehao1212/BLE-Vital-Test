@@ -21,7 +21,8 @@
     "pages/personal/personal",
     "pages/resultDetail/resultDetail",
     "pages/crunches/crunches",
-    "pages/chinUps/chinUps"
+    "pages/chinUps/chinUps",
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
