@@ -147,10 +147,12 @@ App({
 
   device: undefined,
   serviceId: '0000FFE0-0000-1000-8000-00805F9B34FB',
+  // serviceId: '000000EE-0000-1000-8000-00805F9B34FB',
   sessionId: undefined,
   student: undefined,
   myTeacher: undefined,
   characteristicId: '0000FFE1-0000-1000-8000-00805F9B34FB',
+  // characteristicId: '0000EE01-0000-1000-8000-00805F9B34FB',
   url: 'https://wx.acoder.me',
   longitude: undefined,
   latitude: undefined,
