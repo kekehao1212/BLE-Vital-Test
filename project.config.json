@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.6.4",
 	"appid": "wx9f2d9970763424bd",
-	"projectname": "BLE_Vital",
+	"projectname": "kekehao-weapp-ble-refactor",
 	"condition": {
 		"search": {
 			"current": -1,

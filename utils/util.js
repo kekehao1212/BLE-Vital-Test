@@ -15,3 +15,34 @@ const formatNumber = n => {
 }
 
 export {formatTime}
+
+/**
+ * 分隔url
+ * @example
+ * ```
+ * const parts = decomposeUrl('blahblah/blah?abc=1&def=good');
+ * // parts = { abc: '1', def: 'good' }
+ * ```
+ * @param {string} url
+ * @returns {{ [key: string ]: string }}
+ */
+export function decomposeUrl(url) {
+  const [ _, queryParts ] = url.split('?');
+  if (!queryParts) {
+    return { }
+  }
+
+  const components = queryParts.split('&');
+  const result = components.map(component => {
+    const [ key, value ] = component.split('=');
+    if (!key || !value) {
+      return { }
+    } else {
+      return { [key]: value }
+    }
+  }).reduce((out, kvPair) => {
+    return { ...out, ...kvPair }
+  }, { });
+
+  return result;
+}
