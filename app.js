@@ -1,20 +1,15 @@
 //app.js
+import loading from './state/loading'
 App({
   onLaunch () {
-    wx.getSystemInfo({
-      success: (res) => {
-        this.device = (res.brand === 'iPhone') ? 'iphone' : 'android'
-      }
-    })
+    this.longitude = undefined
+    this.latitude = undefined
   },
   onShow () {
     ((!this.student || !this.myTeacher) && !this.signUping) ? this.studentLogin() : null
   },
   studentLogin() {
-    wx.showLoading({
-      title: '正在加载个人信息',
-      mask: true
-    })
+    loading.showLoading('正在加載个人信息',true)
     wx.login({
       success: (res) => {
         const code = res.code;
@@ -25,7 +20,7 @@ App({
           data: {},
           success: (res) => {
             console.log(res)
-            wx.hideLoading()
+            loading.hideLoading()
             this.sessionId = res.header.WX_SESSION_ID;
             console.log(this.sessionId)
             if (!res.data.student) {
@@ -44,18 +39,15 @@ App({
   },
 
   getTeacher() {
-    wx.showLoading({
-      title: '正在加载教师信息',
-      mask: true
-    })
+    loading.showLoading('正在加载教师信息',true)
     wx.request({
       url: `${this.url}/wx/student/supervisor/my`,
       method: 'GET',
       header: { WX_SESSION_ID: this.sessionId },
       success: (res) => {
-        console.log(res)
-        wx.hideLoading()
-        if (res.statusCode == 404) {
+        console.log('121212',res)
+        loading.hideLoading()
+        if (res.statusCode === 404) {
           wx.reLaunch({
             url: '../chooseHappening/chooseHappening',
           })
@@ -124,24 +116,21 @@ App({
   },
 
   Location () {
-    wx.showLoading({
-      title: '正在定位...',
-      mask: true
-    })
+    loading.showLoading('正在定位...', true)
     if (!this.latitude || !this.longitude) {
       wx.getLocation({
         success: (res) => {
-          wx.hideLoading()
+          loading.hideLoading()
           this.longitude = res.longitude
           this.latitude = res.latitude
         },fail: (res) => {
-          wx.hideLoading()
+          loading.hideLoading()
           this.Location()
         }
       })
       return
     } else {
-      wx.hideLoading()
+      loading.hideLoading()
     }
   },
 
