@@ -22,7 +22,7 @@
     "pages/resultDetail/resultDetail",
     "pages/crunches/crunches",
     "pages/chinUps/chinUps",
-    "pages/index/index"
+    "pages/map/map"
   ],
   "window": {
     "backgroundTextStyle": "light",
